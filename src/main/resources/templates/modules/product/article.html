@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover"/>
+    <title>article</title>
+    <link rel="stylesheet" href="/dist/style/weui.css"/>
+    <link rel="stylesheet" href="/dist/example/example.css"/>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="page article js_show">
+
+        <div class="page__bd">
+            <article class="weui-article">
+                <section>
+                    <input type="hidden"  th:value="${content}" id="content"/>
+                    <div id="rich_details"></div>
+                </section>
+            </article>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var content=$("#content").val();
+        if(content){
+            var str=$("#rich_details").html(content).text();
+            $("#rich_details").html(str);
+        }
+    })
+</script>
+</body>
+</html>
