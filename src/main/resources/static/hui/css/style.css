@@ -1,0 +1,20 @@
+h1,h2,h3,h4,h5,h6{font-weight:500;line-height:1.1;color:inherit}
+h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small{font-weight:normal;line-height:1;color:#999}
+h1,h2,h3{margin-top:20px;margin-bottom:10px}
+h1 small,h2 small,h3 small,h1 .small,h2 .small,h3 .small{font-size:65%}
+h4,h5,h6{margin-top:10px;margin-bottom:10px}
+h4 small,h5 small,h6 small,h4 .small,h5 .small,h6 .small{font-size:75%}
+h1{font-size:36px}
+h2{font-size:30px}
+h3{font-size:24px}
+h4{font-size:18px}
+h5{font-size:14px}
+h6{font-size:12px}
+/*内容样式*/
+/*div.codeView{margin-top: 20px;}*/
+#searchList li{padding: 20px}
+/*.Huifold .item{ position:relative}
+.Huifold .item h4{margin:0;font-weight:bold;position:relative;border-top: 1px solid #fff;font-size:15px;line-height:22px;padding:7px 10px;background-color:#eee;cursor:pointer;padding-right:30px}
+.Huifold .item h4 b{position:absolute;display: block; cursor:pointer;right:10px;top:7px;width:16px;height:16px; text-align:center; color:#666}
+.Huifold .item .info{display:none;padding:10px}*/
+
