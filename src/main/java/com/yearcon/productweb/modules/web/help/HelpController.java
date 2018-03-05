@@ -1,16 +1,14 @@
 package com.yearcon.productweb.modules.web.help;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.yearcon.productweb.common.json.JsonResult;
 import com.yearcon.productweb.modules.entity.help.HelpArticle;
 import com.yearcon.productweb.modules.entity.sys.SysDict;
 import com.yearcon.productweb.modules.service.help.ArticleService;
 import com.yearcon.productweb.modules.service.sys.DicService;
+import com.yearcon.productweb.modules.service.help.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +25,8 @@ public class HelpController {
     private DicService dicService;
     @Autowired
     private ArticleService articleService;
-
+    @Autowired
+    private SearchService searchService;
     @RequestMapping(value = "index")
     public String index(Model model, String keyword){
         //System.out.println("index()");

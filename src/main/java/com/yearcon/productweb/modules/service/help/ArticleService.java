@@ -2,11 +2,14 @@ package com.yearcon.productweb.modules.service.help;
 
 import com.yearcon.productweb.modules.dao.help.ArticleDao;
 import com.yearcon.productweb.modules.entity.help.HelpArticle;
-import javassist.compiler.ast.Keyword;
+import com.yearcon.productweb.modules.entity.help.HelpLink;
+import com.yearcon.productweb.modules.entity.help.HelpSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author ayong
@@ -24,7 +27,33 @@ public class ArticleService {
     public HelpArticle findOne(String id){
         return articleDao.findOne(id);
     }
+    @Autowired
+    private SearchService searchService;
+
+    @Autowired
+    private LinkService linkService;
+
+    /**
+     * 搜索关键字
+     * @param Keyword
+     * @return
+     */
     public List<HelpArticle> searchList(String Keyword){
-        return articleDao.findByAvailableAndKeyword("1", Keyword);
+        searchService.save(Keyword);
+        List<HelpSearch> helpSearchList=searchService.fuzzyQuery(Keyword);
+        List<String> articleIdList=new ArrayList<>();
+        for (HelpSearch helpSearch:helpSearchList){
+            List<HelpLink> helpLinks=linkService.findBySearchId(helpSearch.getId());
+            for (HelpLink helpLink:helpLinks){
+                articleIdList.add(helpLink.getArticleId());
+            }
+        }
+        List<String> unique=articleIdList.stream().distinct().collect(Collectors.toList());
+        List<HelpArticle> helpArticles=new ArrayList<>();
+        for(String id:unique){
+            HelpArticle helpArticle=findOne(id);
+            helpArticles.add(helpArticle);
+        }
+        return helpArticles;
     }
 }
