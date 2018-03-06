@@ -15,7 +15,16 @@
 <body>
 <!--头部-->
 <!--<iframe src="modules/help/top.html" width="100%" height="50px"  frameborder="0"	scrolling="no"></iframe>-->
-<div th:include="/modules/help/top::top_div"></div>
+<!--<div th:include="/modules/help/top::top_div"></div>-->
+<header>
+	<div class="navbar navbar-black">
+		<div class="container cl">
+			<a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">首页</a>
+			<a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">首页</a>
+			<span class="logo navbar-slogan f-l mr-10">帮助中心 &middot; 常见问题</span>
+		</div>
+	</div>
+</header>
 <div class="container" style="height: 700px;margin-top: 20px">
 		<!--搜索栏-->
 		<div class="codeView searchDiv" style="text-align: center;margin-bottom: 20px" >
@@ -62,7 +71,15 @@
 </div>
 <!--尾部-->
 <!--<iframe src="foot.html" width="100%"  height="100px" frameborder="0"  scrolling="no"></iframe>-->
-<div th:include="/modules/help/foot :: foot_div" class="footer mt-20"></div>
+<!--<div th:include="/modules/help/foot :: foot_div" class="footer mt-20"></div>-->
+<!--<footer class="footer mt-20">
+	<div class="container-fluid">
+		<nav> <a href="#" target="_blank">关于我们</a> <span class="pipe">|</span> <a href="#" target="_blank">联系我们</a> <span class="pipe">|</span> <a href="#" target="_blank">法律声明</a> </nav>
+		<p>Copyright &copy;2018 yearcon.net All Rights Reserved. <br>
+			<a href="#" target="_blank" rel="nofollow">意尔康股份有限公司</a><br>
+		</p>
+	</div>
+</footer>-->
 <script type="text/javascript" src="/hui/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/hui/js/H-ui.js"></script>
 <script type="text/javascript" src="/hui/js/index.js"></script>

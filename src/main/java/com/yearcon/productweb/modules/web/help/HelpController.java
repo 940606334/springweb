@@ -25,13 +25,12 @@ public class HelpController {
     private DicService dicService;
     @Autowired
     private ArticleService articleService;
-    @Autowired
-    private SearchService searchService;
     @RequestMapping(value = "index")
     public String index(Model model, String keyword){
         //System.out.println("index()");
         model.addAttribute("searchListSize",-1);
         if (keyword!=null&&(!"".equals(keyword))){
+            keyword=keyword.trim();
             List<HelpArticle> helpArticles = articleService.searchList(keyword);
             model.addAttribute("searchList",helpArticles);
             model.addAttribute("searchListSize",helpArticles.size());
